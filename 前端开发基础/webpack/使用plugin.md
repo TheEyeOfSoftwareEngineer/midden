@@ -1,3 +1,6 @@
+## 使用plugin
+Plugin 是用来扩展 Webpack 功能的，通过在构建流程里注入钩子实现，它给 Webpack 带来了很大的灵活性。
+```javascript
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -29,3 +32,8 @@ module.exports = {
     }),
   ]
 };
+```
+安装成功后重新执行构建，dist 目录下多出一个 main_1a87a56a.css 文件，bundle.js 里也没有 CSS 代码了，再把该 CSS 文件引入到 index.html 里就完成了。
+
+Webpack 是通过 plugins 属性来配置需要使用的插件列表的。plugins 属性是一个数组，里面的每一项都是插件的一个实例，在实例化一个组件时可以通过构造函数传入这个组件支持的配置属性。
+
